@@ -10,5 +10,5 @@ package projetjava;
  * @author Amathasan
  */
 public class virus1 {
-    
+    int a=0;
 }
