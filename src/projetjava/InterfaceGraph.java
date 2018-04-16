@@ -20,6 +20,9 @@ import javax.swing.border.TitledBorder;
  *
  * @author Amathasan
  */
+
+
+
 public class InterfaceGraph extends JFrame {
     
     private JPanel pan; // panneau
@@ -36,6 +39,7 @@ public class InterfaceGraph extends JFrame {
     
     private JPanel formualaire2;
     private JPanel test;
+    private  JLabel lab ;
     
     public InterfaceGraph() { // constructeur
         setTitle("HospiECE");
@@ -49,6 +53,8 @@ public class InterfaceGraph extends JFrame {
         petitText = new JLabel();
         co = new JLabel();
         pan = new JPanel();
+        lab =  new JLabel(new ImageIcon("interface.png"));
+        lab.setBounds(10, 50, 350, 350);
         test = new JPanel();
         pan.setLayout(null);
         getContentPane().add(pan);
@@ -99,6 +105,7 @@ public class InterfaceGraph extends JFrame {
         fields.add(formulaire);
         fields.add(test);
         pan.add(fields);
+        pan.add(lab);
         //  pan.add(monButton);
 
         this.setVisible(true);
