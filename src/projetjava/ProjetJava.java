@@ -16,8 +16,8 @@ public class ProjetJava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.print("BarJo c le + bo");
-        int hh;
+       InterfaceGraph a;
+       a = new InterfaceGraph();
     }
     
 }
