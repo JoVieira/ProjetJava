@@ -21,30 +21,46 @@ import javax.swing.border.TitledBorder;
  * @author Amathasan
  */
 public class InterfaceGraph extends JFrame {
-
-    private JPanel pan; // panneau
+    //¨Panel principale
+    private JPanel pan; 
+    
+    //Panel qui va se charger une fois la connection est effectué
     private JPanel apresConnexion;
+    
+    //Panel qui se situe a gauche du panel bouton dans le panel apresConection
     private JPanel apresConnexion2;
+    
+    //Panel qui contient le formualaire
     private JPanel formulaire;
-    private JLabel co;
+    
+    //JLabel qui affiche "Connexion à la Base De Données"
+    private JLabel texteCoBDD;
+    
+    //JLabel pour afficher l'information a entrer et JTextField pour recuperer la saisie
     private JLabel jlBdd;
-    private JLabel petitText;
+    private JLabel texteBienvenue;
     private JTextField jtBdd;
     private JLabel jlLog;
     private JTextField jtLog;
-    private JTextField vrai;
     private JLabel jlMDP;
     private JTextField jtMDP;
-    private JButton boutonValider;
-    private JButton rechercher;
-    private JButton maj;
-    private JButton graphique;
-    private JButton quitter;
+    
+    //Tout les boutons necessaires
+    private JButton boutonConnection;
+    private JButton boutonRechercher;
+    private JButton boutonMaj;
+    private JButton boutonGraphique;
+    private JButton boutonQuitter;
+    
+    //Panel qui contient les boutons rechercher, maj...
     private JPanel boutonsPanel;
 
-    private JPanel formualaire2;
-    private JPanel test;
-    private JLabel lab;
+    
+    //JPanel qui va prendre le texte du Jlabel Connection a la Base de ...
+    private JPanel quiContientTextCoBDD;
+    
+    //JLabel qui affichera une image
+    private JLabel image;
 
     public InterfaceGraph() { // constructeur
         setTitle("Grey Hospital");
@@ -54,104 +70,135 @@ public class InterfaceGraph extends JFrame {
         //setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // instancier le panneau
+        // instancier le panneau, bouton...
         boutonsPanel = new JPanel();
-        rechercher = new JButton();
-        maj = new JButton();
-        graphique = new JButton();
-        quitter = new JButton();
+        boutonRechercher = new JButton();
+        boutonMaj = new JButton();
+        boutonGraphique = new JButton();
+        boutonQuitter = new JButton();
 
         boutonsPanel.setLayout(null);
-        boutonsPanel.add(rechercher);
-        boutonsPanel.add(maj);
-        boutonsPanel.add(graphique);
-        boutonsPanel.add(quitter);
+        boutonsPanel.add(boutonRechercher);
+        boutonsPanel.add(boutonMaj);
+        boutonsPanel.add(boutonGraphique);
+        boutonsPanel.add(boutonQuitter);
 
-        boutonsPanel.setPreferredSize(new Dimension(90, 300));
-        petitText = new JLabel();
+       
+        
+        //Composant qui permet d'afficher le texte "Bienvenue...."
+        texteBienvenue = new JLabel();
 
-        co = new JLabel();
+        //JLabel 
+        texteCoBDD = new JLabel();
+        
+        //Panel principal
         pan = new JPanel();
-        lab = new JLabel(new ImageIcon("interface.png"));
-        lab.setBounds(10, 50, 350, 350);
-        test = new JPanel();
+        
+        //On cree un JLabel avec l'image
+        image = new JLabel(new ImageIcon("interface.png"));
+        
+        //Position de l'image....taile....
+        image.setBounds(10, 50, 350, 350);
+        quiContientTextCoBDD = new JPanel();
         pan.setLayout(null);
         getContentPane().add(pan);
         pan.setBackground(Color.gray);
 
-        JPanel fields = new JPanel();
-        /*GridLayout fieldsLayout = new GridLayout(4, 2);
-      fields.setLayout(fieldsLayout);
-        fieldsLayout.setVgap(3);*/
-        fields.setLayout(null);
+        //Panel qui contient le texte Bienvenue..., le formulaire, bouton
+        JPanel DeuxiemeePanelaGaucheDuPan = new JPanel();
+        
+        
+       //Pour gerer les elements comme je veux dans le Panel
+        DeuxiemeePanelaGaucheDuPan.setLayout(null);
+        
+        //Panel qui contient l'arrayliste (les JTextfield ...)
         formulaire = new JPanel(new GridLayout(14, 0));
-        // formulaire.setLayout(null);
-        //formulaire2 = new JPanel(new GridLayout(14, 0));
+        
 
-        fields.setPreferredSize(new Dimension(600, 600));
-        fields.setBounds(370, 0, 800, 500);
+        //Je choisis la position x,y, largeur, et hauteur de mon Panel fields
+        DeuxiemeePanelaGaucheDuPan.setBounds(370, 0, 800, 500);
 
+        //Dans le panel formulaire j'ajoute mon arrayListe (fonction)
         for (Component comp : initFields()) {
             formulaire.add(comp);
         }
-        //fields.setBackground(Color.lightGray);
+        
+        //Je choisis la position x,y, largeur, et hauteur de mon Panel formulaire
         formulaire.setBounds(0, 150, 400, 450);
+        
+        //On modifie le texte de JLabel
+        texteBienvenue.setText("Bienvenue sur votre application Hospitalier");
+        
+        //On choisis sa position ....
+        texteBienvenue.setBounds(0, 10, 1200, 40);//x,y, larg, haut
+        texteBienvenue.setBackground(Color.red);
+        
+        //Police , taille
+        texteBienvenue.setFont(new Font("DialogInput", Font.BOLD, 23));
 
-        petitText.setText("Bienvenue sur votre application Hospitalier");
-        petitText.setBounds(0, 10, 1200, 40);//x,y, larg, haut
-        petitText.setBackground(Color.red);
-        petitText.setFont(new Font("DialogInput", Font.BOLD, 23));
-
-        co.setText("Connexion à la Base De Données:");
-        co.setBounds(0, 10, 1200, 40);//x,y, larg, haut
-        co.setFont(new Font("DialogInput", Font.BOLD, 23));
-        test.add(co);
-        test.setBounds(-8, 100, 450, 40);
+        texteCoBDD.setText("Connexion à la Base De Données:");
+        texteCoBDD.setBounds(0, 10, 1200, 40);//x,y, larg, haut
+        texteCoBDD.setFont(new Font("DialogInput", Font.BOLD, 23));
+        
+        //Jpanel avec le texte
+        quiContientTextCoBDD.add(texteCoBDD);
+        
+        //Position, hauteur... du Panel avec le texte
+        quiContientTextCoBDD.setBounds(-8, 100, 450, 40);
+        
+        //Panel qui va prendre le bouton connexion
         JPanel monButton = new JPanel();
-        //monButton.setLayout(null);
-        //  monButton.setPreferredSize(new Dimension(100, 100));
-        monButton.setBounds(50, 50, 10, 20);
+        
 
-        // monButton.setLayout(null);
-        //monButton.setBackground(Color.red);
-        //monButton.setLayout(new FlowLayout(FlowLayout.CENTER));
-        fields.add(petitText);
-        monButton.add(boutonValider = new JButton("Connexion"));
-        boutonValider.setBackground(Color.gray);
-        boutonValider.setForeground(Color.white);
+       
+        DeuxiemeePanelaGaucheDuPan.add(texteBienvenue);
+        
+        //On ajoute le bouton dans le panel 
+        monButton.add(boutonConnection = new JButton("Connexion"));
+        
+        boutonConnection.setBackground(Color.gray);
+        boutonConnection.setForeground(Color.white);
+        
+       //J'ajoute le panel bouton dans le panel formulaire
         formulaire.add(monButton);
 
-        fields.add(formulaire);
-        fields.add(test);
-        pan.add(fields);
-        pan.add(lab);
+        //On ajoute tous dans le panel fields
+        DeuxiemeePanelaGaucheDuPan.add(formulaire);
+        DeuxiemeePanelaGaucheDuPan.add(quiContientTextCoBDD);
+        
+        pan.add(DeuxiemeePanelaGaucheDuPan);
+        pan.add(image);
 
-        rechercher.setBounds(0, 0, 200, 115);
-        rechercher.setText("Rechercher");
-        rechercher.setBackground(Color.lightGray);
-        maj.setBounds(0, 115, 200, 115);
-        maj.setText("Mise à jour");
-        maj.setBackground(Color.lightGray);
+        boutonRechercher.setBounds(0, 0, 200, 115);
+        boutonRechercher.setText("Rechercher");
+        boutonRechercher.setBackground(Color.lightGray);
+        boutonMaj.setBounds(0, 115, 200, 115);
+        boutonMaj.setText("Mise à jour");
+        boutonMaj.setBackground(Color.lightGray);
 
-        graphique.setBounds(0, 230, 200, 115);
-        graphique.setText("Graphique");
-        graphique.setBackground(Color.lightGray);
+        boutonGraphique.setBounds(0, 230, 200, 115);
+        boutonGraphique.setText("Graphique");
+        boutonGraphique.setBackground(Color.lightGray);
 
-        quitter.setBounds(0, 345, 200, 115);
-        quitter.setText("Quitter");
-        quitter.setBackground(Color.lightGray);
+        boutonQuitter.setBounds(0, 345, 200, 115);
+        boutonQuitter.setText("Quitter");
+        boutonQuitter.setBackground(Color.lightGray);
 
+        //Panel qui va se charger une fois la connection est effectué
         apresConnexion = new JPanel();
         apresConnexion.setLayout(null);
         apresConnexion.setBackground(Color.gray);
 
+        //On ajoute nos boutons dans le Panel apresConnection 
         apresConnexion.add(boutonsPanel);
+        
+        //On choisis la positions dans notre page apresConnection
         boutonsPanel.setBounds(0, 0, 200, 500);
         boutonsPanel.setBackground(Color.LIGHT_GRAY);
 
+        //On add
         apresConnexion2 = new JPanel();
         apresConnexion2.setLayout(null);
-        apresConnexion2.setPreferredSize(new Dimension(600, 600));
         apresConnexion2.setBounds(200, 0, 800, 500);
         apresConnexion.add(apresConnexion2);
 
@@ -160,6 +207,7 @@ public class InterfaceGraph extends JFrame {
 
     }
 
+     //formualire
     private ArrayList<Component> initFields() {
         ArrayList<Component> result = new ArrayList<>();
         /*  result.add(co = new JLabel("Connexion a la BASE DE DONNEES :"));
@@ -182,31 +230,22 @@ public class InterfaceGraph extends JFrame {
         return result;
     }
 
-    public void actionPerformed(ActionEvent e) {
-        // throw new UnsupportedOperationException("Not supported yet."); //To
-        // change body of generated methods, choose Tools | Templates.
-        if (e.getSource() == boutonValider) {
-            System.out.println("Formulaire validé");
-        } else {
-            System.out.println("Formulaire non validé");
-        }
-
-    }
+   
 
     public JButton getButtonConnexion() {
-        return this.boutonValider;
+        return this.boutonConnection;
     }
     public JButton getButtonRechercher() {
-        return rechercher;
+        return boutonRechercher;
     }
     public JButton getButtonMAJ() {
-        return maj;
+        return boutonMaj;
     }
     public JButton getButtonQuitter() {
-        return quitter;
+        return boutonQuitter;
     }
     public JButton getButtonGraph() {
-        return this.graphique;
+        return this.boutonGraphique;
     }
 
     public String getNbdd() {
@@ -232,12 +271,12 @@ public class InterfaceGraph extends JFrame {
     public void setMDP(String a) {
         jtMDP.setText(a);
     }
-
+ //Charger le panel actuel par apresConnection
     public void changerMenu() {
         this.setContentPane(this.apresConnexion);
         this.revalidate();
     }
-    
+    //
     public void affichReq(){
         JPanel panReq = new JPanel(); 
         JTextField req = new JTextField("Entrez ici votre requête");
@@ -248,7 +287,7 @@ public class InterfaceGraph extends JFrame {
     }
 
     public JButton getQuitter() {
-        return quitter;
+        return boutonQuitter;
     }
 
 }

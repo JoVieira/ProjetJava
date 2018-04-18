@@ -39,8 +39,8 @@ public class ProjetJava implements ActionListener {
             String logTest = "Taylor";
             String mdpTest = "isthebest";
 
-            if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
-                System.out.println("youpi");
+           // if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
+               
                 try {
                     Connexion con = new Connexion("Thomas", "25041962", "Taylor", "isthebest");
                     
@@ -51,7 +51,7 @@ public class ProjetJava implements ActionListener {
                 interfaceG.changerMenu();
                 
                 
-                }
+               // }
             
             }
         if(e.getSource() == interfaceG.getButtonQuitter())

@@ -76,26 +76,26 @@ public class Connexion {
     public Connexion(String usernameNAS, String passwordNAS, String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException {
         // chargement driver "com.mysql.jdbc.Driver"
         Class.forName("com.mysql.jdbc.Driver");
-        System.out.print("ok1");
+        System.out.print("Driver ok");
 
         // Connexion via le tunnel SSH avec le username et le password ECE
         SSHTunnel ssh = new SSHTunnel(usernameNAS, passwordNAS);
-        System.out.print("ok2");
+        System.out.print("\nSSH Tunnel ok");
 
         if (ssh.connect()) {
-            System.out.println("Connexion reussie");
+            System.out.println("\nConnexion reussie");
 
             // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
             String urlDatabase = "jdbc:mysql://88.166.192.246:3307/hopital";
-            System.out.print("ok3");
+            System.out.print("\nConnectio DB ok");
 
             //création d'une connexion JDBC à la base
             conn = DriverManager.getConnection(urlDatabase, "Taylor", "isthebest");
-            System.out.print("ok4");
+            System.out.print("\nCreation connection JBC");
 
             // création d'un ordre SQL (statement)
             stmt = conn.createStatement();
-            System.out.print("ok5");
+            System.out.print("\nCreation ordre SQL");
 
         }
     }
