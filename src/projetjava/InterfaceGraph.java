@@ -182,17 +182,6 @@ public class InterfaceGraph extends JFrame {
         return result;
     }
 
-    public void actionPerformed(ActionEvent e) {
-        // throw new UnsupportedOperationException("Not supported yet."); //To
-        // change body of generated methods, choose Tools | Templates.
-        if (e.getSource() == boutonValider) {
-            System.out.println("Formulaire validé");
-        } else {
-            System.out.println("Formulaire non validé");
-        }
-
-    }
-
     public JButton getButtonConnexion() {
         return this.boutonValider;
     }
