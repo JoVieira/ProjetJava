@@ -5,6 +5,9 @@ import vue.InterfaceGraph;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -18,6 +21,7 @@ public class ProjetJava implements ActionListener {
      * @param args the command line arguments
      */
     private InterfaceGraph interfaceG = new InterfaceGraph();
+    private Connexion con;
 
     public ProjetJava() {
         interfaceG.getButtonConnexion().addActionListener(this);
@@ -50,9 +54,8 @@ public class ProjetJava implements ActionListener {
                 System.out.println("youpi");
 
                 try {
-                    Connexion con = new Connexion("Thomas", "25041962", "Taylor", "isthebest");
+                    con = new Connexion("Thomas", "25041962", "Taylor", "isthebest");
                     
-
                 } catch (SQLException | ClassNotFoundException g) {
                     g.printStackTrace();
                 }
@@ -62,18 +65,26 @@ public class ProjetJava implements ActionListener {
                // }
             
             //}
+        }
+        
         if(e.getSource() == interfaceG.getButtonQuitter())
             System.exit(0);
         if(e.getSource() == interfaceG.getButtonMAJ()){
             System.out.println("Cool");
             interfaceG.affichReq();
+            interfaceG.getValReq().addActionListener(this);
         }
-        if(e.getSource() == interfaceG.getButtonMAJ()){
-            
+        if(e.getSource() == interfaceG.getValReq()){
+            System.out.println(interfaceG.getReq().getText());
+            try {
+                //con.ajouterRequete(interfaceG.getReq().getText());
+                ArrayList a = con.remplirChampsTable(interfaceG.getReq().getText());
+                
+                for(int i=0;i<a.size();i++) {
+                    System.out.println(a.get(i));
+                }
+            } catch (SQLException ex) { }
         }
-
-
-    }
     }
 
     /**

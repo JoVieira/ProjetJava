@@ -153,6 +153,7 @@ public class Connexion {
         // Ajouter tous les champs du resultat dans l'ArrayList
         for (int i = 0; i < nbColonne; i++) {
             champs = champs + " " + rsetMeta.getColumnLabel(i + 1);
+            System.out.println("ok" + i);
         }
 
         // ajouter un "\n" à la ligne des champs

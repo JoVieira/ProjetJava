@@ -23,19 +23,14 @@ import javax.swing.border.TitledBorder;
 public class InterfaceGraph extends JFrame {
     //¨Panel principale
     private JPanel pan; 
-    
     //Panel qui va se charger une fois la connection est effectué
     private JPanel apresConnexion;
-    
     //Panel qui se situe a gauche du panel bouton dans le panel apresConection
     private JPanel apresConnexion2;
-    
     //Panel qui contient le formualaire
     private JPanel formulaire;
-    
     //JLabel qui affiche "Connexion à la Base De Données"
     private JLabel texteCoBDD;
-    
     //JLabel pour afficher l'information a entrer et JTextField pour recuperer la saisie
     private JLabel jlBdd;
     private JLabel texteBienvenue;
@@ -54,14 +49,14 @@ public class InterfaceGraph extends JFrame {
     
     //Panel qui contient les boutons rechercher, maj...
     private JPanel boutonsPanel;
-
-    
     //JPanel qui va prendre le texte du Jlabel Connection a la Base de ...
     private JPanel quiContientTextCoBDD;
-    
     //JLabel qui affichera une image
     private JLabel image;
 
+    private JButton valReq;
+    private JTextField req;
+    
     public InterfaceGraph() { // constructeur
         setTitle("Grey Hospital");
         //setResizable(false);
@@ -83,17 +78,12 @@ public class InterfaceGraph extends JFrame {
         boutonsPanel.add(boutonGraphique);
         boutonsPanel.add(boutonQuitter);
 
-       
-        
         //Composant qui permet d'afficher le texte "Bienvenue...."
         texteBienvenue = new JLabel();
-
         //JLabel 
         texteCoBDD = new JLabel();
-        
         //Panel principal
         pan = new JPanel();
-        
         //On cree un JLabel avec l'image
         image = new JLabel(new ImageIcon("interface.png"));
         
@@ -106,14 +96,12 @@ public class InterfaceGraph extends JFrame {
 
         //Panel qui contient le texte Bienvenue..., le formulaire, bouton
         JPanel DeuxiemeePanelaGaucheDuPan = new JPanel();
-        
-        
+
        //Pour gerer les elements comme je veux dans le Panel
         DeuxiemeePanelaGaucheDuPan.setLayout(null);
         
         //Panel qui contient l'arrayliste (les JTextfield ...)
         formulaire = new JPanel(new GridLayout(14, 0));
-        
 
         //Je choisis la position x,y, largeur, et hauteur de mon Panel fields
         DeuxiemeePanelaGaucheDuPan.setBounds(370, 0, 800, 500);
@@ -149,15 +137,13 @@ public class InterfaceGraph extends JFrame {
         //Panel qui va prendre le bouton connexion
         JPanel monButton = new JPanel();
         
-
-       
         DeuxiemeePanelaGaucheDuPan.add(texteBienvenue);
         
         //On ajoute le bouton dans le panel 
         monButton.add(boutonConnection = new JButton("Connexion"));
         
         boutonConnection.setBackground(Color.gray);
-        boutonConnection.setForeground(Color.white);
+        //boutonConnection.setForeground(Color.white);
         
        //J'ajoute le panel bouton dans le panel formulaire
         formulaire.add(monButton);
@@ -204,7 +190,6 @@ public class InterfaceGraph extends JFrame {
 
         //  pan.add(monButton);
         this.setVisible(true);
-
     }
 
      //formualire
@@ -277,8 +262,10 @@ public class InterfaceGraph extends JFrame {
     //
     public void affichReq(){
         JPanel panReq = new JPanel(); 
-        JTextField req = new JTextField("Entrez ici votre requête");
+        req = new JTextField("Entrez ici votre requête");
+        valReq = new JButton("Valider");
         panReq.add(req);
+        panReq.add(valReq);
         panReq.setVisible(true);
         this.setContentPane(panReq);
         this.revalidate();
@@ -286,6 +273,14 @@ public class InterfaceGraph extends JFrame {
 
     public JButton getQuitter() {
         return boutonQuitter;
+    }
+    
+    public JButton getValReq() {
+        return valReq;
+    }
+    
+    public JTextField getReq() {
+        return req;
     }
 
 }
