@@ -1,4 +1,4 @@
-package controleur;
+package modele;
 
 import com.jcraft.jsch.*;
 

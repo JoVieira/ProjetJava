@@ -1,6 +1,6 @@
-package modele;
+package controleur;
 
-import controleur.Connexion;
+import modele.Connexion;
 import vue.InterfaceGraph;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,13 +42,13 @@ public class ProjetJava implements ActionListener {
             String logTest = "Taylor";
             String mdpTest = "isthebest";
 
-<<<<<<< HEAD:src/projetjava/ProjetJava.java
+
            // if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
                
-=======
+
             //if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
                 System.out.println("youpi");
->>>>>>> be4f2032b7f64d03670de84a69f06968c3e17e2e:src/modele/ProjetJava.java
+
                 try {
                     Connexion con = new Connexion("Thomas", "25041962", "Taylor", "isthebest");
                     
@@ -74,7 +74,12 @@ public class ProjetJava implements ActionListener {
 
 
     }
+    }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         // TODO code application logic here
         InterfaceGraph a;
