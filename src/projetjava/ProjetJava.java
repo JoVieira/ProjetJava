@@ -1,51 +1,55 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projetjava;
 
-import java.awt.GridLayout;
-import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author joel
  */
-public class ProjetJava extends JFrame implements ActionListener {
-    
-    private JButton b1, b2, b3;
-    
+public class ProjetJava implements ActionListener {
+
+    /**
+     * @param args the command line arguments
+     */
+    private InterfaceGraph interfaceG = new InterfaceGraph();
+
     public ProjetJava() {
-        setTitle("Hopital");
-        setSize(600,150);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLayout(new GridLayout(1,3));
-        b1 = new JButton("coucou"); 
-        b2 = new JButton("bonjour"); 
-        b3 = new JButton("Quitter"); 
-        getContentPane().add(b1);
-        getContentPane().add(b2);
-        getContentPane().add(b3);
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-        b3.addActionListener(this);
-    }
-    
-    @Override
-    public void actionPerformed (ActionEvent e) {
-        if(e.getSource()==b1)
-            b1.setText("salut");
-        if(e.getSource()==b2)
-            b2.setText("bonsoir");
-        if(e.getSource()==b3)
-            System.exit(0);
-    }
-    
-    public static void main(String[] args) {
-        ProjetJava pj = new ProjetJava();
-        pj.setVisible(true);
+        interfaceG.getButtonConnexion().addActionListener(this);
 
     }
-    
+
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == interfaceG.getButtonConnexion()) {
+            String nom = interfaceG.getNbdd();
+            String login = interfaceG.getLog();
+            String mdp = interfaceG.getPass();
+
+            interfaceG.setNom(nom);
+            interfaceG.setLog(login);
+            interfaceG.setMDP(mdp);
+
+            String nomTest = "ECE";
+            String logTest = "iTz";
+            String mdpTest = "123";
+
+            //if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
+                System.out.println("youpi");
+                interfaceG.changerMenu();
+
+         //   }
+
+        }
+
+    }
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        InterfaceGraph a;
+        ProjetJava b;
+        b = new ProjetJava();
+        // a = new InterfaceGraph();
+    }
+
 }

@@ -2,9 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
-            <file>file:/Users/joel/Documents/GitHub/ProjetJava/src/projetjava/virus1.java</file>
-            <file>file:/Users/joel/Documents/GitHub/ProjetJava/src/projetjava/ProjetJava.java</file>
+            <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/projetjava/InterfaceGraph.java</file>
+            <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/projetjava/ProjetJava.java</file>
         </group>
+>>>>>>> 2748b72c409eae74bd889b021ce222d93453668a
     </open-files>
 </project-private>
