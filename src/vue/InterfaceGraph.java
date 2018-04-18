@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetjava;
+package vue;
 
 import javax.swing.JFrame;
 import javax.swing.*;
@@ -230,8 +230,11 @@ public class InterfaceGraph extends JFrame {
         return result;
     }
 
+<<<<<<< HEAD:src/projetjava/InterfaceGraph.java
    
 
+=======
+>>>>>>> be4f2032b7f64d03670de84a69f06968c3e17e2e:src/vue/InterfaceGraph.java
     public JButton getButtonConnexion() {
         return this.boutonConnection;
     }

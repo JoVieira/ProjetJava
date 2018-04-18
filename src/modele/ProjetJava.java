@@ -1,5 +1,7 @@
-package projetjava;
+package modele;
 
+import controleur.Connexion;
+import vue.InterfaceGraph;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -21,6 +23,7 @@ public class ProjetJava implements ActionListener {
         interfaceG.getButtonConnexion().addActionListener(this);
         interfaceG.getButtonMAJ().addActionListener(this);
         interfaceG.getButtonQuitter().addActionListener(this);
+        interfaceG.getButtonRechercher().addActionListener(this);
 
     }
 
@@ -39,8 +42,13 @@ public class ProjetJava implements ActionListener {
             String logTest = "Taylor";
             String mdpTest = "isthebest";
 
+<<<<<<< HEAD:src/projetjava/ProjetJava.java
            // if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
                
+=======
+            //if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
+                System.out.println("youpi");
+>>>>>>> be4f2032b7f64d03670de84a69f06968c3e17e2e:src/modele/ProjetJava.java
                 try {
                     Connexion con = new Connexion("Thomas", "25041962", "Taylor", "isthebest");
                     
@@ -53,14 +61,17 @@ public class ProjetJava implements ActionListener {
                 
                // }
             
-            }
+            //}
         if(e.getSource() == interfaceG.getButtonQuitter())
-                    System.exit(0);
-                if(e.getSource() == interfaceG.getButtonMAJ()){
-                    System.out.println("Cool");
-                    interfaceG.affichReq();
-
+            System.exit(0);
+        if(e.getSource() == interfaceG.getButtonMAJ()){
+            System.out.println("Cool");
+            interfaceG.affichReq();
         }
+        if(e.getSource() == interfaceG.getButtonMAJ()){
+            
+        }
+
 
     }
 
