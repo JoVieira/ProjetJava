@@ -1,4 +1,4 @@
-package projetjava;
+package controleur;
 
 import com.jcraft.jsch.*;
 

@@ -1,5 +1,7 @@
-package projetjava;
+package modele;
 
+import controleur.Connexion;
+import vue.InterfaceGraph;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -21,6 +23,7 @@ public class ProjetJava implements ActionListener {
         interfaceG.getButtonConnexion().addActionListener(this);
         interfaceG.getButtonMAJ().addActionListener(this);
         interfaceG.getButtonQuitter().addActionListener(this);
+        interfaceG.getButtonRechercher().addActionListener(this);
 
     }
 
@@ -55,12 +58,15 @@ public class ProjetJava implements ActionListener {
             
             }
         if(e.getSource() == interfaceG.getButtonQuitter())
-                    System.exit(0);
-                if(e.getSource() == interfaceG.getButtonMAJ()){
-                    System.out.println("Cool");
-                    interfaceG.affichReq();
-
+            System.exit(0);
+        if(e.getSource() == interfaceG.getButtonMAJ()){
+            System.out.println("Cool");
+            interfaceG.affichReq();
         }
+        if(e.getSource() == interfaceG.getButtonMAJ()){
+            
+        }
+
 
     }
 
