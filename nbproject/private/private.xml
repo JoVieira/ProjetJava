@@ -6,8 +6,12 @@
         <group/>
 =======
         <group>
+<<<<<<< HEAD
+            <file>file:/Users/joel/Documents/GitHub/ProjetJava/src/projetjava/ProjetJava.java</file>
+=======
             <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/projetjava/InterfaceGraph.java</file>
             <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/projetjava/ProjetJava.java</file>
+>>>>>>> 4cfbd4c15a978e06ac2ffe1a57acd4c43885c9e7
         </group>
 >>>>>>> 2748b72c409eae74bd889b021ce222d93453668a
     </open-files>
