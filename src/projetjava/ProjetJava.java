@@ -16,6 +16,7 @@ public class ProjetJava implements ActionListener {
 
     public ProjetJava() {
         interfaceG.getButtonConnexion().addActionListener(this);
+        interfaceG.getQuitter().addActionListener(this);
 
     }
 
@@ -35,11 +36,13 @@ public class ProjetJava implements ActionListener {
             String mdpTest = "123";
 
             //if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
-                System.out.println("youpi");
-                interfaceG.changerMenu();
+            System.out.println("youpi");
+            interfaceG.changerMenu();
 
-         //   }
-
+            //   }
+        }
+        if (e.getSource() == interfaceG.getQuitter()) {
+            System.exit(0);
         }
 
     }

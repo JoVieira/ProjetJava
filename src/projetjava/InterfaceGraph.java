@@ -226,4 +226,8 @@ public class InterfaceGraph extends JFrame {
         this.revalidate();
     }
 
+    public JButton getQuitter() {
+        return quitter;
+    }
+
 }
