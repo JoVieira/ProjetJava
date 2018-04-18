@@ -47,7 +47,7 @@ public class InterfaceGraph extends JFrame {
     private JLabel lab;
 
     public InterfaceGraph() { // constructeur
-        setTitle("HospiECE");
+        setTitle("Grey Hospital");
         //setResizable(false);
         setSize(1000, 500);
         setLocationRelativeTo(null);
@@ -196,6 +196,18 @@ public class InterfaceGraph extends JFrame {
     public JButton getButtonConnexion() {
         return this.boutonValider;
     }
+    public JButton getButtonRechercher() {
+        return rechercher;
+    }
+    public JButton getButtonMAJ() {
+        return maj;
+    }
+    public JButton getButtonQuitter() {
+        return quitter;
+    }
+    public JButton getButtonGraph() {
+        return this.graphique;
+    }
 
     public String getNbdd() {
         return jtBdd.getText();
@@ -223,6 +235,15 @@ public class InterfaceGraph extends JFrame {
 
     public void changerMenu() {
         this.setContentPane(this.apresConnexion);
+        this.revalidate();
+    }
+    
+    public void affichReq(){
+        JPanel panReq = new JPanel(); 
+        JTextField req = new JTextField("Entrez ici votre requête");
+        panReq.add(req);
+        panReq.setVisible(true);
+        this.setContentPane(panReq);
         this.revalidate();
     }
 
