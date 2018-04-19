@@ -24,6 +24,12 @@ public class ProjetJava implements ActionListener {
     private InterfaceGraph interfaceG = new InterfaceGraph();
     private Connexion con;
 
+/**
+ *
+ * @author joel & maxime & romuald
+ * Constructeur par défaut, permet
+ * d'initialiser tous les Listeneer
+ */
     public ProjetJava() {
         interfaceG.getButtonConnexion().addActionListener(this);
         interfaceG.getButtonMAJ().addActionListener(this);
@@ -32,6 +38,14 @@ public class ProjetJava implements ActionListener {
 
     }
 
+/**
+ *
+ * @author joel & maxime & romuald
+ * @param ActionEvent e
+ * la méthode principale qui relie interface et
+ * contrôle, elle regroupe toutes les 
+ * méthodes qui seront utilisées
+ */
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == interfaceG.getButtonConnexion()) {
@@ -47,41 +61,38 @@ public class ProjetJava implements ActionListener {
             String logTest = "Taylor";
             String mdpTest = "isthebest";
 
-
            // if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
-               
-
             //if (nom.equals(nomTest) && login.equals(logTest) && mdp.equals(mdpTest)) {
-                System.out.println("youpi");
-
                 try {
                     con = new Connexion("Thomas", "25041962", "Taylor", "isthebest");
-                    
                 } catch (SQLException | ClassNotFoundException g) {
                     g.printStackTrace();
                 }
                 interfaceG.changerMenu();
-                
-                
                // }
-            
             //}
         }
         
         if(e.getSource() == interfaceG.getButtonQuitter())
             System.exit(0);
         if(e.getSource() == interfaceG.getButtonMAJ()){
-            System.out.println("Cool");
             interfaceG.affichReq();
             interfaceG.getValReq().addActionListener(this);
         }
         if(e.getSource() == interfaceG.getValReq()){
             System.out.println(interfaceG.getReq().getText());
-            try {
+            //try {
                 //con.ajouterRequete(interfaceG.getReq().getText());
+<<<<<<< HEAD
    afficherLignes(interfaceG.getReq().getText());
             //} catch (SQLException ex) { }
 
+=======
+<<<<<<< HEAD
+                afficherLignes(interfaceG.getReq().getText());
+            //} catch (SQLException ex) { }
+=======
+>>>>>>> parent of d330654... Re javadoc
                 con.ajouterTable(interfaceG.getReq().getText());
                 con.ajouterRequete("SELECT salaire FROM Infirmier ORDER BY salaire;");
                  for (String table : con.tables) {
@@ -91,12 +102,16 @@ public class ProjetJava implements ActionListener {
                  afficherLignes("infirmier");
                  afficherRes("SELECT salaire FROM Infirmier ORDER BY salaire;");
                 ArrayList a = con.remplirChampsTable(interfaceG.getReq().getText());
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of d330654... Re javadoc
                 
                 for(int i=0;i<a.size();i++) {
                     System.out.println(a.get(i));
                 }
             } catch (SQLException ex) { }
+<<<<<<< HEAD
 
                 ArrayList b = new ArrayList();
                 for (int i = 0; i < a.size() ; i++){
@@ -109,6 +124,9 @@ public class ProjetJava implements ActionListener {
                 }
             } catch (SQLException ex) { }
 
+=======
+>>>>>>> parent of 856c96f... Merge branch 'master' of https://github.com/JoVieira/ProjetJava
+>>>>>>> parent of d330654... Re javadoc
         }
     }
 
@@ -127,65 +145,69 @@ public class ProjetJava implements ActionListener {
     
     
 
-    /**
-     *
-     * Afficher les lignes de la table sélectionnée
-     */
+/**
+ *
+ * @author joel & maxime & romuald
+ * @param String nomTable
+ * Utilise la méthode afficherRes pour afficher toutes les lignes
+ * d'une table
+ * @see afficherRes()
+ * @version 2.0
+ */
     public void afficherLignes(String nomTable) {
         try {
             ArrayList<String> liste;
-
-            // effacer les résultats
-           
 
             // recupérér les résultats de la table selectionnee
             liste = con.remplirChampsTable(nomTable);
 
             // afficher les champs de la table selectionnee 
-            
-            for (String liste1 : liste) {
-                System.out.println("" +liste);
-            }
+                System.out.println(liste);
 
             // recuperer la liste de la table sélectionnée
             String requeteSelectionnee = "select * from " + nomTable + ";";
-            liste = con.remplirChampsRequete(requeteSelectionnee);
-
-            // afficher les lignes de la requete selectionnee a partir de la liste
-            for (String liste1 : liste) {
-                System.out.println("" + liste);
-            }
-
+            
+            //afficher ladite liste
+            afficherRes(requeteSelectionnee);
         } catch (SQLException e) {
             // afficher l'erreur dans les résultats
-           
-
+            e.printStackTrace();
         }
     }
-    
+
+/**
+ *
+ * @author joel & maxime & romuald
+ * Méthode qui permet d'afficher dans la console la requête saisie
+ */
     public void afficherRequetes() {
         for (String requete : con.requetes) {
-            System.out.println("" + requete);
+            System.out.println(requete);
         }
     }
     
-        public ArrayList<String> afficherRes(String requeteSelectionnee) throws SQLException {
+/**
+ *
+ * @author joel & maxime & romuald
+ * Méthode qui affiche la liste des éléments en retour d'une requête SQL
+ * @throws java.sql.SQLException
+ * @param String requeteSelectionnee, la requête SQL souhaitée
+ * @return ArrayList liste, la lsite de tous les éléments qui consituent le résutltat de la requête
+ * @version 2.0
+ */
+    public ArrayList<String> afficherRes(String requeteSelectionnee) throws SQLException {
         ArrayList<String> liste = null;
         try {
-
-            // effacer les résultats
-            
-
             // recupérér les résultats de la requete selectionnee
             liste = con.remplirChampsRequete(requeteSelectionnee);
 
             // afficher les lignes de la requete selectionnee a partir de la liste
             for (String liste1 : liste) {
-                System.out.println("" + liste1);
+                System.out.println(liste1);
             }
         } catch (SQLException e) {
             // afficher l'erreur dans les résultats
-            
+            e.printStackTrace();
         }
         return liste;
     }
