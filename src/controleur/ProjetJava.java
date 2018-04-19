@@ -78,11 +78,13 @@ public class ProjetJava implements ActionListener {
             System.out.println(interfaceG.getReq().getText());
             try {
                 //con.ajouterRequete(interfaceG.getReq().getText());
-                ArrayList a = con.remplirChampsTable(interfaceG.getReq().getText());
+                ArrayList<ArrayList<String>> a = con.remplirChampsRequete(interfaceG.getReq().getText());
                 
-                for(int i=0;i<a.size();i++) {
-                    System.out.println(a.get(i));
-                }
+                /*for(int i=0;i<a.size();i++) {
+                    for(int j=0;j<a.get(i).size();j++) {
+                        System.out.println(a.get(i).get(j));
+                    }
+                }*/
             } catch (SQLException ex) { }
         }
     }

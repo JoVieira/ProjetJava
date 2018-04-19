@@ -153,7 +153,6 @@ public class Connexion {
         // Ajouter tous les champs du resultat dans l'ArrayList
         for (int i = 0; i < nbColonne; i++) {
             champs = champs + " " + rsetMeta.getColumnLabel(i + 1);
-            System.out.println("ok" + i);
         }
 
         // ajouter un "\n" à la ligne des champs
@@ -183,8 +182,10 @@ public class Connexion {
         int nbColonne = rsetMeta.getColumnCount();
 
         // creation d'une ArrayList de String
-        ArrayList<String> liste;
-        liste = new ArrayList<String>();
+        ArrayList<ArrayList<String>> liste;
+        ArrayList<String> list;
+        liste = new ArrayList<ArrayList<String>>();
+        list = new ArrayList<String>();
 
         // tant qu'il reste une ligne 
         while (rset.next()) {
@@ -194,13 +195,16 @@ public class Connexion {
             // Concatener les champs de la ligne separes par ,
             for (int i = 1; i < nbColonne; i++) {
                 champs = champs + "," + rset.getString(i + 1);
+                list.add(champs);
             }
 
             // ajouter un "\n" à la ligne des champs
-            champs = champs + "\n";
+            champs = "";
 
             // ajouter les champs de la ligne dans l'ArrayList
-            liste.add(champs);
+            for(int i=0;i<list.size();i++)
+                System.out.println(list.get(i));
+            liste.add(list);
         }
 
         // Retourner l'ArrayList
