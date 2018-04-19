@@ -145,6 +145,7 @@ public class Connexion {
 
         // calcul du nombre de colonnes du resultat
         int nbColonne = rsetMeta.getColumnCount();
+        
 
         // creation d'une ArrayList de String
         ArrayList<String> liste;
@@ -153,8 +154,6 @@ public class Connexion {
         // Ajouter tous les champs du resultat dans l'ArrayList
         for (int i = 0; i < nbColonne; i++) {
             champs = champs + " " + rsetMeta.getColumnLabel(i + 1);
-
-            System.out.println("ok" + i);
         }
 
         // ajouter un "\n" à la ligne des champs
