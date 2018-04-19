@@ -262,7 +262,7 @@ public class InterfaceGraph extends JFrame {
     //
     public void affichReq(){
         JPanel panReq = new JPanel(); 
-        req = new JTextField("Entrez ici votre requête");
+        req = new JTextField("Entrez ici fvotre requête");
         valReq = new JButton("Validerrrr");
         panReq.add(req);
         panReq.add(valReq);
