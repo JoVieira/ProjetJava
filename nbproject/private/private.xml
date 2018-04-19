@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/projetjava/InterfaceGraph.java</file>
-            <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/projetjava/SSHTunnel.java</file>
-            <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/projetjava/ProjetJava.java</file>
+            <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/controleur/ProjetJava.java</file>
+            <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/modele/Connexion.java</file>
+            <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/modele/SSHTunnel.java</file>
+            <file>file:/C:/Users/Amathasan/Documents/GitHub/ProjetJava/src/vue/InterfaceGraph.java</file>
         </group>
     </open-files>
 </project-private>

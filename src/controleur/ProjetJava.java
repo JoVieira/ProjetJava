@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import org.omg.CORBA.SystemException;
 
 /**
  *
@@ -78,6 +79,14 @@ public class ProjetJava implements ActionListener {
             System.out.println(interfaceG.getReq().getText());
             try {
                 //con.ajouterRequete(interfaceG.getReq().getText());
+                con.ajouterTable(interfaceG.getReq().getText());
+                con.ajouterRequete("SELECT salaire FROM Infirmier ORDER BY salaire;");
+                 for (String table : con.tables) {
+                     System.out.println("" + table);
+        }
+                 afficherRequetes();
+                 afficherLignes("infirmier");
+                 afficherRes("SELECT salaire FROM Infirmier ORDER BY salaire;");
                 ArrayList a = con.remplirChampsTable(interfaceG.getReq().getText());
                 
                 for(int i=0;i<a.size();i++) {
@@ -99,5 +108,71 @@ public class ProjetJava implements ActionListener {
         // a = new InterfaceGraph();
 
     }
+    
+    
+
+    /**
+     *
+     * Afficher les lignes de la table sélectionnée
+     */
+    public void afficherLignes(String nomTable) {
+        try {
+            ArrayList<String> liste;
+
+            // effacer les résultats
+           
+
+            // recupérér les résultats de la table selectionnee
+            liste = con.remplirChampsTable(nomTable);
+
+            // afficher les champs de la table selectionnee 
+            
+            for (String liste1 : liste) {
+                System.out.println("" +liste);
+            }
+
+            // recuperer la liste de la table sélectionnée
+            String requeteSelectionnee = "select * from " + nomTable + ";";
+            liste = con.remplirChampsRequete(requeteSelectionnee);
+
+            // afficher les lignes de la requete selectionnee a partir de la liste
+            for (String liste1 : liste) {
+                System.out.println("" + liste);
+            }
+
+        } catch (SQLException e) {
+            // afficher l'erreur dans les résultats
+           
+
+        }
+    }
+    
+    public void afficherRequetes() {
+        for (String requete : con.requetes) {
+            System.out.println("" + requete);
+        }
+    }
+    
+        public ArrayList<String> afficherRes(String requeteSelectionnee) throws SQLException {
+        ArrayList<String> liste = null;
+        try {
+
+            // effacer les résultats
+            
+
+            // recupérér les résultats de la requete selectionnee
+            liste = con.remplirChampsRequete(requeteSelectionnee);
+
+            // afficher les lignes de la requete selectionnee a partir de la liste
+            for (String liste1 : liste) {
+                System.out.println("" + liste1);
+            }
+        } catch (SQLException e) {
+            // afficher l'erreur dans les résultats
+            
+        }
+        return liste;
+    }
+
 
 }
