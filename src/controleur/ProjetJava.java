@@ -83,8 +83,25 @@ public class ProjetJava implements ActionListener {
             System.out.println(interfaceG.getReq().getText());
             //try {
                 //con.ajouterRequete(interfaceG.getReq().getText());
+<<<<<<< HEAD
                 afficherLignes(interfaceG.getReq().getText());
             //} catch (SQLException ex) { }
+=======
+                con.ajouterTable(interfaceG.getReq().getText());
+                con.ajouterRequete("SELECT salaire FROM Infirmier ORDER BY salaire;");
+                 for (String table : con.tables) {
+                     System.out.println("" + table);
+        }
+                 afficherRequetes();
+                 afficherLignes("infirmier");
+                 afficherRes("SELECT salaire FROM Infirmier ORDER BY salaire;");
+                ArrayList a = con.remplirChampsTable(interfaceG.getReq().getText());
+                
+                for(int i=0;i<a.size();i++) {
+                    System.out.println(a.get(i));
+                }
+            } catch (SQLException ex) { }
+>>>>>>> parent of 856c96f... Merge branch 'master' of https://github.com/JoVieira/ProjetJava
         }
     }
 

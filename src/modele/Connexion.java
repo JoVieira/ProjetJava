@@ -154,6 +154,10 @@ public class Connexion {
         // Ajouter tous les champs du resultat dans l'ArrayList
         for (int i = 0; i < nbColonne; i++) {
             champs = champs + " " + rsetMeta.getColumnLabel(i + 1);
+<<<<<<< HEAD
+=======
+            System.out.println("ok" + i);
+>>>>>>> parent of 856c96f... Merge branch 'master' of https://github.com/JoVieira/ProjetJava
         }
 
         // ajouter un "\n" à la ligne des champs
