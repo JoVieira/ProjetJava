@@ -79,6 +79,13 @@ public class ProjetJava implements ActionListener {
             System.out.println(interfaceG.getReq().getText());
             try {
                 //con.ajouterRequete(interfaceG.getReq().getText());
+<<<<<<< HEAD
+<<<<<<< HEAD
+                afficherLignes(interfaceG.getReq().getText());
+            //} catch (SQLException ex) { }
+=======
+=======
+>>>>>>> parent of 9e23090... Javadoc mamène
                 con.ajouterTable(interfaceG.getReq().getText());
                 con.ajouterRequete("SELECT salaire FROM Infirmier ORDER BY salaire;");
                  for (String table : con.tables) {
@@ -88,6 +95,14 @@ public class ProjetJava implements ActionListener {
                  afficherLignes("infirmier");
                  afficherRes("SELECT salaire FROM Infirmier ORDER BY salaire;");
                 ArrayList a = con.remplirChampsTable(interfaceG.getReq().getText());
+<<<<<<< HEAD
+                
+                for(int i=0;i<a.size();i++) {
+                    System.out.println(a.get(i));
+                }
+            } catch (SQLException ex) { }
+>>>>>>> parent of 856c96f... Merge branch 'master' of https://github.com/JoVieira/ProjetJava
+=======
                 ArrayList b = new ArrayList();
                 for (int i = 0; i < a.size() ; i++){
                     b.add(a.get(i));
@@ -98,6 +113,7 @@ public class ProjetJava implements ActionListener {
                     System.out.println("OK "+i);
                 }
             } catch (SQLException ex) { }
+>>>>>>> parent of 9e23090... Javadoc mamène
         }
     }
 
