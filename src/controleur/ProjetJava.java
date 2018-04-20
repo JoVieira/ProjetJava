@@ -83,8 +83,7 @@ public class ProjetJava implements ActionListener {
             System.out.println(interfaceG.getReq().getText());
             //try {
                 //con.ajouterRequete(interfaceG.getReq().getText());
-
-   afficherLignes(interfaceG.getReq().getText());
+            afficherLignes(interfaceG.getReq().getText());
             //} catch (SQLException ex) { }
         }
     }
